@@ -43,7 +43,14 @@ experiments on a local personal computer by following the upcoming steps.
 we have to execute the following commands.
 ```text
 ~/xpal/src/evaluation$ mkdir ../../results
-~/xpal/src/evaluation$ python3 experimental_setup_csv.py --query_strategy xpal-0.001  --data_set iris --results_path ../../results --test_ratio 0.4 --bandwidth mean --budget 200 --seed 1
+~/xpal/src/evaluation$ python3 experimental_setup_csv.py \
+  --query_strategy xpal-0.001 \
+  --data_set iris \
+  --results_path ../../results \
+  --test_ratio 0.4 \
+  --bandwidth mean \
+  --budget 200 \
+  --seed 1 \
 ```
 The results are saved in the directory xpal/results/ as a .csv-file.
 The names of the possible data sets are given in the file xpal/dat_set_ids.csv.

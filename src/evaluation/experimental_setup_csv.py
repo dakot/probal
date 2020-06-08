@@ -177,7 +177,7 @@ def run(data_set, results_path, query_strategy, budget, test_ratio, kernel, band
     for b in range(budget):
         print("budget: {}".format(b))
         # evaluate performance
-        if test_ratio == 1:
+        if test_ratio != 1:
             eval_perfs(clf=pwc, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, perf_results=perf_results,
                        perf_funcs=perf_funcs)
 
@@ -197,7 +197,7 @@ def run(data_set, results_path, query_strategy, budget, test_ratio, kernel, band
         pwc.fit(data.X_[labeled], data.y_[labeled])
 
     # evaluate final performance
-    if budget_csv != 'all':
+    if test_ratio != 1:
         eval_perfs(clf=pwc, X_train=X_train, y_train=y_train, X_test=X_test, y_test=y_test, perf_results=perf_results,
                    perf_funcs=perf_funcs)
 
@@ -233,3 +233,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
