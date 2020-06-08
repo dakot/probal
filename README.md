@@ -73,7 +73,7 @@ projectpath$ source xpal/bin/activate
 projectpath$ jupyter-notebook
 ```
 
-## How to reproduce the complexity plots?
+## How to reproduce the runtime plots?
 Start jupyter-notebook and run the jupyter-notebook file `projectpath/src/projectpath/complexity.ipynb`.
 ```bash
 projectpath$ source xpal/bin/activate
