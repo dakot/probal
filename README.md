@@ -15,7 +15,7 @@
 Due to the large number of experiments, we executed the experiments on a computer cluster consisting of four nodes with
 about 100 CPU units. Using these nodes, we were able to execute 100 experiments simultaneously. An exemplary script how
 showing how we executed the experiments on our computer cluster with SLURM is given by 
-`xpal/src/evaluation/evaluate_competitive_strategies.sh`.
+`projectpath/src/evaluation/evaluate_competitive_strategies.sh`.
 
 Without such a computer cluster, it will  probably take several days to reproduce all results of the article. Nevertheless, one can execute the 
 experiments on a local personal computer by following the upcoming steps.
@@ -51,14 +51,14 @@ projectpath/src/evaluation$ python3 experimental_setup_csv.py \
   --budget 200 \
   --seed 1
 ```
-The results are saved in the directory xpal/results/ as a .csv-file.
+The results are saved in the directory `projectpath/results/` as a .csv-file.
 The names of the possible data sets are given in the file `xpal/dat_set_ids.csv`.
 The available kernels are: `rbf`, `categorical`, and `cosine`.
 To create the ranking plot, there must be at least one run for each strategy on a data set. For example, you could execute the above command with the different strategies by setting the `query_strategy` parameter: `xpal-0.001, pal-1, lc, alce, qbc, zero-one-loss, random, qbc`.
 
 
 ## How to plot the experimental results?
-Start jupyter-notebook and open the jupyter-notebook file `xpal/src/notebooks/evaluation_csv.ipynb`.
+Start jupyter-notebook and run the jupyter-notebook file `xpal/src/notebooks/evaluation_csv.ipynb`.
 Remark: The ranking plots can only be created when we have for each dataset and each strategy the same number of 
 executed experiments. 
 ```bash
@@ -67,7 +67,14 @@ projectpath$ jupyter-notebook
 ```
 
 ## How to reproduce the utility plots?
-Start jupyter-notebook and open the jupyter-notebook file `xpal/src/notebooks/visualization.ipynb`.
+Start jupyter-notebook and run the jupyter-notebook file `xpal/src/notebooks/visualization.ipynb`.
+```bash
+projectpath$ source xpal/bin/activate
+projectpath$ jupyter-notebook
+```
+
+## How to reproduce the complexity plots?
+Start jupyter-notebook and run the jupyter-notebook file `projectpath/src/projectpath/complexity.ipynb`.
 ```bash
 projectpath$ source xpal/bin/activate
 projectpath$ jupyter-notebook
