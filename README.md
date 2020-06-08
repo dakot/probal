@@ -15,7 +15,7 @@
 Due to the large number of experiments, we executed the experiments on a computer cluster consisting of four nodes with
 about 100 CPU units. Using these nodes, we were able to execute 100 experiments simultaneously. An exemplary script how
 showing how we executed the experiments on our computer cluster with SLURM is given by 
-xpal/src/evaluation/evaluate_competitive_strategies.sh.
+`xpal/src/evaluation/evaluate_competitive_strategies.sh`.
 
 Without such a computer cluster, it will  probably take several days to reproduce all results of the article. Nevertheless, one can execute the 
 experiments on a local personal computer by following the upcoming steps.
