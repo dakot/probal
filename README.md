@@ -28,7 +28,7 @@ experiments on a local personal computer by following the upcoming steps.
 ~/xpal$ source xpal/bin/activate
 ~/xpal$ pip3 install -r requirements.txt
 ```
-2. Get information about the available parameters for the experiments.
+2. Get information about the available hyperparameters (argparse) for the experiments.
 ```text
 ~/xpal$ cd src/evaluation/
 ~/xpal/src/evaluation$ python3 experimental_setup_csv.py -h
