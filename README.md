@@ -22,16 +22,16 @@ experiments on a local personal computer by following the upcoming steps.
 
 1. Setup Python environment:
 ```bash
-~/xpal$ sudo apt-get install python3-pip
-~/xpal$ pip3 install virtualenv
-~/xpal$ virtualenv xpal
-~/xpal$ source xpal/bin/activate
-~/xpal$ pip3 install -r requirements.txt
+projectpath$ sudo apt-get install python3-pip
+projectpath$ pip3 install virtualenv
+projectpath$ virtualenv xpal
+projectpath$ source xpal/bin/activate
+projectpath$ pip3 install -r requirements.txt
 ```
 2. Get information about the available hyperparameters (argparse) for the experiments.
 ```bash
-~/xpal$ cd src/evaluation/
-~/xpal/src/evaluation$ python3 experimental_setup_csv.py -h
+projectpath$ cd src/evaluation/
+projectpath/src/evaluation$ python3 experimental_setup_csv.py -h
 ```
 3. Example experiment: To test xPAL on the dataset iris with:
     - a budget of 200 samples, 
@@ -42,32 +42,32 @@ experiments on a local personal computer by following the upcoming steps.
     
 we have to execute the following commands.
 ```bash
-~/xpal/src/evaluation$ mkdir ../../results
-~/xpal/src/evaluation$ python3 experimental_setup_csv.py \
+projectpath/src/evaluation$ python3 experimental_setup_csv.py \
   --query_strategy xpal-0.001 \
   --data_set iris \
   --results_path ../../results \
   --test_ratio 0.4 \
   --bandwidth mean \
   --budget 200 \
-  --seed 1 \
+  --seed 1
 ```
 The results are saved in the directory xpal/results/ as a .csv-file.
 The names of the possible data sets are given in the file `xpal/dat_set_ids.csv`.
 The available kernels are: `rbf`, `categorical`, and `cosine`.
+To create the ranking plot, there must be at least one run for each strategy on a data set. For example, you could execute the above command with the different strategies by setting the `query_strategy` parameter: `xpal-0.001, pal-1, lc, alce, qbc, zero-one-loss, random, qbc`.
+```bash
 
 ## How to plot the experimental results?
 Start jupyter-notebook and open the jupyter-notebook file `xpal/src/notebooks/evaluation_csv.ipynb`.
 Remark: The ranking plots can only be created when we have for each dataset and each strategy the same number of 
-executed experiments.
-```bash
-~/xpal/$ source xpal/bin/activate
-~/xpal/$ jupyter-notebook
+executed experiments. 
+projectpath$ source xpal/bin/activate
+projectpath$ jupyter-notebook
 ```
 
 ## How to reproduce the utility plots?
 Start jupyter-notebook and open the jupyter-notebook file `xpal/src/notebooks/visualization.ipynb`.
 ```bash
-~/xpal/$ source xpal/bin/activate
-~/xpal/$ jupyter-notebook
+projectpath$ source xpal/bin/activate
+projectpath$ jupyter-notebook
 ```

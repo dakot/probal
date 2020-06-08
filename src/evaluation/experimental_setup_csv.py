@@ -169,7 +169,7 @@ def run(data_set, results_path, query_strategy, budget, test_ratio, kernel, band
         selection_strategy = QBC(data_set=data, model=pwc_cpy, random_state=seed)
     else:
         raise ValueError(
-            "'query_strategy' must be in [xpal, pal, lc, sm, entropy, log-loss, zero-one-loss, random, optimal, quire]")
+            "'query_strategy' must be in [xpal, pal, lc, sm, entropy, log-loss, zero-one-loss, random, optimal]")
 
     # ----------------------------------------- ACTIVE LEARNING CYCLE --------------------------------------------------
     labeled = []
@@ -215,17 +215,18 @@ def run(data_set, results_path, query_strategy, budget, test_ratio, kernel, band
 
 def main():
     parser = ArgumentParser(description='Parameters of experimental setup')
-    parser.add_argument('--data_set', type=str, help='name of data set: default=iris')
+    parser.add_argument('--data_set', type=str, default='iris', help='name of data set, see data_set_ids.csv for more information, '
+                                                                     'default=iris')
     parser.add_argument('--results_path', type=str, help='absolute path for saving results: default=../../results')
-    parser.add_argument('--query_strategy', default='random', type=str, help='name of active learning strategy: '
-                                                                             '[xpal-0.001, pal-1.0, lc, alce, '
-                                                                             'zero-one-loss, qbc, optimal]')
+    parser.add_argument('--query_strategy', default='xpal-0.001', type=str, help='name of active learning strategy: '
+                                                                             '[xpal-0.001, pal-1, lc, alce, '
+                                                                             'zero-one-loss, qbc, optimal], default=xpal-0.001')
     parser.add_argument('--budget', default=200, help='number of active learning iterations: default=200')
     parser.add_argument('--test_ratio', type=float, default=0.4, help='ratio of test samples: default=0.4')
-    parser.add_argument('--kernel', type=str, default='rbf', help='kernel used by Parzen Window Classifier: '
-                                                                  'default=rbf')
+    parser.add_argument('--kernel', type=str, default='rbf', help='kernel used by Parzen window classifier: '
+                                                                  '[rbf, categorical, cosine], default=rbf')
     parser.add_argument('--bandwidth', default='mean', help='kernel bandwidth: default=mean')
-    parser.add_argument('--seed', type=int, default=0, help='seed for reproducibility: default=0')
+    parser.add_argument('--seed', type=int, default=1, help='seed for reproducibility: default=0')
     args = parser.parse_args()
     run(data_set=args.data_set, results_path=args.results_path, query_strategy=args.query_strategy, budget=args.budget,
         test_ratio=args.test_ratio, kernel=args.kernel, bandwidth=args.bandwidth, seed=args.seed)
