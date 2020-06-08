@@ -57,7 +57,7 @@ The names of the possible data sets are given in the file `xpal/dat_set_ids.csv`
 The available kernels are: `rbf`, `categorical`, and `cosine`.
 
 ## How to plot the experimental results?
-Start jupyter-notebook and open the jupyter-notebook file `xpal/notebooks/evaluation_csv.ipynb`.
+Start jupyter-notebook and open the jupyter-notebook file `xpal/src/notebooks/evaluation_csv.ipynb`.
 Remark: The ranking plots can only be created when we have for each dataset and each strategy the same number of 
 executed experiments.
 ```bash
@@ -66,7 +66,7 @@ executed experiments.
 ```
 
 ## How to reproduce the utility plots?
-Start jupyter-notebook and open the jupyter-notebook file `xpal/notebooks/visualization.ipynb`.
+Start jupyter-notebook and open the jupyter-notebook file `xpal/src/notebooks/visualization.ipynb`.
 ```bash
 ~/xpal/$ source xpal/bin/activate
 ~/xpal/$ jupyter-notebook
