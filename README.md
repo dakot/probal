@@ -1,15 +1,16 @@
 # Toward Optimal Probabilistic Active Learning Using a Bayesian Approach
 
 ## Project Structure
-- images: contains the visualizations of the results and utility plots
+- data: contains .csv-files of data sets being not available at [OpenML](https://www.openml.org/home)
+- data_set_ids.csv: contains the list of data sets with their IDs at [OpenML](https://www.openml.org/home)
+- images: path where the visualizations of the results and utility plots will be saved
 - src: Python package consisting of several sub-packages
     - base: implementation of DataSet and QueryStrategy class
     - classifier: implementation of Parzen Window Classifier (PWC)
-    - evaluation: scripts for experimental setup and slurm
+    - evaluation: scripts for experimental setup and SLURM
     - notebooks: jupyter notebooks for the investigation of the different query strategies
     - query_strategies: implementation of all query strategies
     - utils: helper functions
-- data_set_ids.csv: contains the list of data sets with their IDs at [OpenML](https://www.openml.org/home)
 
 ## How to execute an experiment?
 Due to the large number of experiments, we executed the experiments on a computer cluster consisting of four nodes with
@@ -54,7 +55,9 @@ projectpath/src/evaluation$ python3 experimental_setup_csv.py \
 The results are saved in the directory `projectpath/results/` as a .csv-file.
 The names of the possible data sets are given in the file `xpal/dat_set_ids.csv`.
 The available kernels are: `rbf`, `categorical`, and `cosine`.
-To create the ranking plot, there must be at least one run for each strategy on a data set. For example, you could execute the above command with the different strategies by setting the `query_strategy` parameter: `xpal-0.001, pal-1, lc, alce, qbc, zero-one-loss, random, qbc`.
+To create the ranking plot, there must be at least one run for each strategy on a data set. For example, you could 
+execute the above command with the different strategies by setting the `query_strategy` parameter to each of the 
+following values: `xpal-0.001, pal-1, lc, alce, qbc, zero-one-loss, random, qbc`.
 
 
 ## How to plot the experimental results?

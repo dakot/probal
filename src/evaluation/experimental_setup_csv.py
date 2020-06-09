@@ -1,8 +1,7 @@
 import sys
 sys.path.append('../../')
-import os
 
-#os.nice(-20)
+import os
 os.environ['OMP_NUM_THREADS'] = "1"
 os.environ['NUMEXPR_NUM_THREADS'] = "1"
 os.environ['MKL_NUM_THREADS'] = "1"

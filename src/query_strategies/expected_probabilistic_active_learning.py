@@ -8,9 +8,7 @@ from sklearn.utils import check_array
 class XPAL(QueryStrategy):
     """XPAL
 
-    The expected probabilistic active learning (xPAL) strategy is a generalization of the
-    multi-class probabilistic active learning (McPAL) [1] and the optimised probabilistic active learning (OPAL) [2]
-    due to  the computation of the performance gain on an evaluation set.
+    The expected probabilistic active learning (xPAL) strategy.
 
     Parameters
     ----------
@@ -49,15 +47,6 @@ class XPAL(QueryStrategy):
         Data set containing samples, class labels, and optionally confidences of annotator(s).
     random_state_: numeric | np.random.RandomState
         Random state for annotator selection.
-
-    References
-    ----------
-    [1] Daniel Kottke, Georg Krempl, Dominik Lang, Johannes Teschner, and Myra Spiliopoulou.
-        Multi-Class Probabilistic Active Learning,
-        vol. 285 of Frontiers in Artificial Intelligence and Applications, pages 586-594. IOS Press, 2016
-    [2] Georg Krempl, Daniel Kottke, Vincent Lemaire.
-        Optimised probabilistic active learning (OPAL),
-        vol. 100 oof Machine Learning, pages 449-476. Springer, 2015
     """
 
     def __init__(self, **kwargs):
