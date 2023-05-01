@@ -121,15 +121,15 @@ def run(data_set, results_path, query_strategy, budget, test_ratio, kernel, band
         bandwidth = np.power(n_samples, -1. / (n_features + 4))
     elif bandwidth == 'mean':
         if kernel == 'rbf':
-            nominator = 2 * n_samples * n_features
+            numerator = 2 * n_samples * n_features
             denominator = (n_samples - 1) * np.log((n_samples - 1) / ((np.sqrt(2) * 10 ** -6) ** 2))
         elif kernel == 'categorical':
-            nominator = (np.sum(cdist(XA=X_train, XB=X_train, metric='hamming')))/(n_samples**2 - n_samples)
+            numerator = (np.sum(cdist(XA=X_train, XB=X_train, metric='hamming')))/(n_samples**2 - n_samples)
             denominator = np.log((n_samples - 1) / ((np.sqrt(2) * 10 ** -6) ** 2))
         else:
-            nominator = 1
+            numerator = 1
             denominator = 1
-        bandwidth = np.sqrt(nominator / denominator)
+        bandwidth = np.sqrt(numerator / denominator)
     else:
         bandwidth = float(bandwidth)
     print('bandwidth: {}'.format(str(bandwidth)))
