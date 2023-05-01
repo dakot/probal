@@ -204,7 +204,7 @@ def run(data_set, results_path, query_strategy, budget, test_ratio, kernel, band
     abs_path = os.path.abspath(os.path.dirname(__file__))
 
     # store performance results
-    print(np.mean(times))
+    print(f'mean time: {np.mean(times)}')
     perf_results['time'] = times
     df = pd.DataFrame(perf_results)
     relative_path = '{}/performances_{}.csv'.format(results_path, csv_name)
